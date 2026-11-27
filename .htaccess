@@ -1,0 +1,7 @@
+# VP ITLabs — extensionless URLs for Apache
+RewriteEngine On
+
+# If the requested path maps to an existing .php file, serve it without extension
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]
