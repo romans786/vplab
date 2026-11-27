@@ -2830,3 +2830,80 @@ body[data-page="terms"] .page-hero::before {
   .page-hero::before,
   .page-hero::after { animation: none; }
 }
+
+@media (max-width: 768px) {
+  .hero-art {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 0;
+    margin: 10px auto 4px;
+  }
+  .hero-art img {
+    width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+  .home-think .think-art img,
+  .about-feature .think-art img {
+    height: auto;
+    aspect-ratio: auto;
+    object-fit: contain;
+  }
+  .gallery-media {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    background: #e8f0f4;
+  }
+  .gallery-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .home-think .think-visual:hover .think-art img,
+  .about-visual:hover .think-art img { transform: none; }
+}
+
+@media (max-width: 768px) {
+  .site-footer { padding-top: 40px; }
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px 20px;
+    padding-bottom: 30px;
+  }
+  .footer-grid > * { min-width: 0; }
+  .footer-grid > .footer-brand,
+  .footer-grid > :last-child { grid-column: 1 / -1; }
+  .footer-brand img { width: min(210px, 70vw); }
+  .site-footer h4 { margin-bottom: 12px; }
+  .footer-links li { margin-bottom: 8px; }
+  .footer-contact li { align-items: flex-start; gap: 8px; }
+  .footer-contact a,
+  .site-footer p { overflow-wrap: anywhere; }
+  .footer-social { flex-wrap: wrap; gap: 8px; }
+  .footer-bottom {
+    justify-content: center;
+    padding: 16px 0;
+    text-align: center;
+  }
+  .footer-bottom p { max-width: 100%; }
+  .footer-bottom > .footer-social { display: none; }
+}
+
+@media (max-width: 480px) {
+  .site-footer { padding-top: 32px; }
+  .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 22px 14px;
+    padding-bottom: 24px;
+  }
+  .footer-grid > .footer-brand,
+  .footer-grid > :last-child { grid-column: 1 / -1; }
+  .footer-links a,
+  .footer-contact a { font-size: .82rem; }
+  .footer-contact li { gap: 6px; font-size: .82rem; }
+  .footer-contact svg { width: 13px; height: 13px; }
+  .footer-bottom { gap: 8px; }
+  .footer-bottom p { font-size: .78rem; }
+}
