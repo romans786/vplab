@@ -14,6 +14,8 @@
             <li><a href="about">About us</a></li>
             <li><a href="contact">Contact us</a></li>
             <li><a href="courses">Courses</a></li>
+            <li><a href="login">Log in</a></li>
+            <li><a href="signup">Create account</a></li>
           </ul>
         </div>
         <div>

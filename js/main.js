@@ -306,4 +306,14 @@
       form.reset();
     });
   }
+
+  // Account pages are UI previews; never send credentials to the server.
+  var accountPreviewButtons = document.querySelectorAll('[data-account-preview-trigger]');
+  accountPreviewButtons.forEach(function (button) {
+    button.addEventListener('click', function () {
+      var status = button.closest('.account-card').querySelector('[data-account-preview-status]');
+      status.textContent = 'Account access is not connected yet. No information was submitted.';
+      status.hidden = false;
+    });
+  });
 }());

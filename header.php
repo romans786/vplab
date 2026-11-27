@@ -30,6 +30,7 @@ $active = array(
     'internship'=> in_array($pageFile, array('data-science-reg', 'internship-5th-sem', 'internship-3rd-sem'), true),
     'gallery'  => ($pageFile === 'gallery'),
 );
+$accountActive = in_array($pageFile, array('login', 'signup'), true);
 $servicesHref = ($pageFile === 'index') ? '#services' : 'index#services';
 ?>
 <!DOCTYPE html>
@@ -139,6 +140,7 @@ $servicesHref = ($pageFile === 'index') ? '#services' : 'index#services';
             </ul>
           </li>
         </ul>
+        <a class="nav-link account-nav-link<?php echo $accountActive ? ' active' : ''; ?>" href="login">Log in</a>
         <a class="btn-primary header-cta" href="contact">Get Started</a>
       </nav>
       <button class="burger" aria-label="Toggle menu"><span></span><span></span><span></span></button>
@@ -174,6 +176,8 @@ $servicesHref = ($pageFile === 'index') ? '#services' : 'index#services';
           <li><a href="gallery#students">Internship&rsquo;s Students</a></li>
         </ul>
       </li>
+      <li><a class="nav-link<?php echo $accountActive ? ' active' : ''; ?>" href="login">Log in</a></li>
+      <li><a class="nav-link" href="signup">Create account</a></li>
     </ul>
     <a class="btn-primary header-cta" href="contact">Get Started</a>
   </aside>
