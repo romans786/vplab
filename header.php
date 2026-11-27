@@ -23,6 +23,7 @@ $brandTheme  = isset($_COOKIE['vpit-brand-theme']) && $_COOKIE['vpit-brand-theme
 $brandLogoLight = 'img/Untitled%20design%20(3).png';
 $brandLogoDark  = 'img/vpit.png';
 $brandLogo      = $brandTheme === 'light' ? $brandLogoLight : $brandLogoDark;
+$naturalScrollPage = in_array($pageFile, array('login', 'signup', 'data-science-reg', 'internship-3rd-sem', 'internship-5th-sem'), true);
 
 // Which nav item is active (by filename)
 $active = array(
@@ -38,7 +39,7 @@ $accountActive = in_array($pageFile, array('login', 'signup'), true);
 $servicesHref = 'service';
 ?>
 <!DOCTYPE html>
-<html lang="en"<?php echo in_array($pageFile, array('login', 'signup'), true) ? ' class="account-page-scroll"' : ''; ?>>
+<html lang="en"<?php echo $naturalScrollPage ? ' class="natural-scroll-page"' : ''; ?>>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,7 +66,7 @@ $servicesHref = 'service';
   <meta name="twitter:image" content="<?php echo htmlspecialchars($ogImage); ?>">
 
   <link rel="canonical" href="<?php echo htmlspecialchars($canonicalUrl); ?>">
-  <link rel="icon" href="img/vpit.png" type="image/png">
+  <link rel="icon" href="img/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">

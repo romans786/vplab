@@ -97,7 +97,8 @@
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var serviceCards = document.querySelectorAll('.services-grid .service-card');
   var pageSections = Array.prototype.slice.call(document.querySelectorAll('body > section'));
-  if ('IntersectionObserver' in window && !reduceMotion && pageSections.length) {
+  if (!document.documentElement.classList.contains('natural-scroll-page') &&
+      'IntersectionObserver' in window && !reduceMotion && pageSections.length) {
     var scrollScenes = [];
     pageSections.forEach(function (section, index) {
       var scene = document.createElement('div');

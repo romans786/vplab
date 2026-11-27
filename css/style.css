@@ -2675,7 +2675,7 @@ html {
   scroll-snap-type: y mandatory;
   scroll-padding-top: 82px;
 }
-html.account-page-scroll {
+html.natural-scroll-page {
   scroll-snap-type: none;
   scroll-padding-top: 0;
 }
