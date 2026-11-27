@@ -3,15 +3,22 @@
     <div class="container">
       <div class="footer-grid">
         <div class="footer-brand">
-          <img src="img/logo.webp" alt="VP ITLabs logo">
-          <h3>Best IT Service Provider in Ahmedabad</h3>
-          <p>Our Technology takes your Imagination into Reality.</p>
+          <img src="<?php echo htmlspecialchars($brandLogo, ENT_QUOTES, 'UTF-8'); ?>" data-light-logo="<?php echo htmlspecialchars($brandLogoLight, ENT_QUOTES, 'UTF-8'); ?>" data-dark-logo="<?php echo htmlspecialchars($brandLogoDark, ENT_QUOTES, 'UTF-8'); ?>" alt="VP ITLabs">
+          <div class="brand-theme-switch" role="group" aria-label="Header and footer theme">
+            <button type="button" class="theme-option" data-brand-theme-choice="light" aria-label="Light theme" title="Light theme" aria-pressed="<?php echo $brandTheme === 'light' ? 'true' : 'false'; ?>">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg>
+            </button>
+            <button type="button" class="theme-option" data-brand-theme-choice="dark" aria-label="Dark theme" title="Dark theme" aria-pressed="<?php echo $brandTheme === 'dark' ? 'true' : 'false'; ?>">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.2 15.4A8.5 8.5 0 0 1 8.6 3.8 8.5 8.5 0 1 0 20.2 15.4Z"/></svg>
+            </button>
+          </div>
         </div>
         <div>
           <h4>Menu</h4>
           <ul class="footer-links">
             <li><a href="index">Home</a></li>
             <li><a href="about">About us</a></li>
+            <li><a href="service">Services</a></li>
             <li><a href="contact">Contact us</a></li>
             <li><a href="courses">Courses</a></li>
             <li><a href="login">Log in</a></li>

@@ -1,6 +1,29 @@
 (function () {
   'use strict';
 
+  // Keep the header and footer theme controls and logos in sync.
+  var themeChoices = document.querySelectorAll('[data-brand-theme-choice]');
+  var themeLogos = document.querySelectorAll('[data-light-logo][data-dark-logo]');
+  function setBrandTheme(theme, persist) {
+    document.body.setAttribute('data-brand-theme', theme);
+    themeLogos.forEach(function (logo) {
+      logo.src = logo.getAttribute(theme === 'light' ? 'data-light-logo' : 'data-dark-logo');
+    });
+    themeChoices.forEach(function (choice) {
+      choice.setAttribute('aria-pressed', choice.getAttribute('data-brand-theme-choice') === theme ? 'true' : 'false');
+    });
+    if (persist) {
+      document.cookie = 'vpit-brand-theme=' + theme + '; path=/; max-age=31536000; samesite=lax';
+    }
+  }
+  var initialTheme = document.body.getAttribute('data-brand-theme') === 'light' ? 'light' : 'dark';
+  setBrandTheme(initialTheme, false);
+  themeChoices.forEach(function (choice) {
+    choice.addEventListener('click', function () {
+      setBrandTheme(choice.getAttribute('data-brand-theme-choice'), true);
+    });
+  });
+
   // Sticky header shadow
   var header = document.querySelector('.site-header');
   function onScroll() {
@@ -73,6 +96,68 @@
   var finePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var serviceCards = document.querySelectorAll('.services-grid .service-card');
+  var pageSections = Array.prototype.slice.call(document.querySelectorAll('body > section'));
+  if ('IntersectionObserver' in window && !reduceMotion && pageSections.length) {
+    var scrollScenes = [];
+    pageSections.forEach(function (section, index) {
+      var scene = document.createElement('div');
+      scene.className = 'section-scene';
+      scene.style.zIndex = String(index + 1);
+      section.parentNode.insertBefore(scene, section);
+      scene.appendChild(section);
+      section.classList.add('scroll-zoom');
+      scrollScenes.push(scene);
+    });
+
+    function layoutScrollScenes() {
+      var viewportHeight = window.innerHeight;
+      var headerHeight = header ? header.getBoundingClientRect().height : 0;
+      var panelHeight = Math.max(0, viewportHeight - headerHeight);
+      var transitionHeight = Math.max(160, Math.min(420, Math.round(panelHeight * 0.55)));
+      var stickyScenes = scrollScenes.map(function (scene) {
+        var section = scene.firstElementChild;
+        scene.classList.remove('section-scene-sticky');
+        scene.style.height = 'auto';
+        scene.style.marginTop = '0';
+        section.style.removeProperty('min-height');
+        section.style.removeProperty('--sticky-offset');
+
+        if (panelHeight > 0 && section.offsetHeight <= panelHeight * 0.9) {
+          scene.classList.add('section-scene-sticky');
+          scene.style.height = (panelHeight + transitionHeight) + 'px';
+          section.style.minHeight = panelHeight + 'px';
+          section.style.setProperty('--sticky-offset', headerHeight + 'px');
+          return true;
+        }
+        return false;
+      });
+
+      scrollScenes.forEach(function (scene, index) {
+        if (index > 0 && stickyScenes[index - 1]) {
+          scene.style.marginTop = '-' + transitionHeight + 'px';
+        }
+      });
+    }
+
+    layoutScrollScenes();
+    window.addEventListener('resize', layoutScrollScenes, { passive: true });
+    window.addEventListener('load', layoutScrollScenes, { once: true });
+    pageSections.forEach(function (section) {
+      section.querySelectorAll('img').forEach(function (image) {
+        image.addEventListener('load', layoutScrollScenes, { once: true });
+      });
+    });
+
+    var zoomObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        var upcoming = !entry.isIntersecting && entry.boundingClientRect.top > window.innerHeight;
+        entry.target.classList.toggle('is-scroll-before', upcoming);
+        entry.target.classList.toggle('is-scroll-current', entry.isIntersecting);
+      });
+    }, { threshold: 0 });
+    pageSections.forEach(function (section) { zoomObserver.observe(section); });
+  }
+
   if (finePointer && !reduceMotion) {
     var cursorSections = document.querySelectorAll('section');
     cursorSections.forEach(function (section) {
@@ -104,8 +189,8 @@
         card.style.setProperty('--glow-y', (e.clientY - rect.top) + 'px');
         var tiltX = (e.clientY - rect.top) / rect.height - 0.5;
         var tiltY = (e.clientX - rect.left) / rect.width - 0.5;
-        card.style.setProperty('--tilt-x', (-tiltX * 2.4).toFixed(2) + 'deg');
-        card.style.setProperty('--tilt-y', (tiltY * 2.4).toFixed(2) + 'deg');
+        card.style.setProperty('--tilt-x', (-tiltX * 12).toFixed(2) + 'deg');
+        card.style.setProperty('--tilt-y', (tiltY * 12).toFixed(2) + 'deg');
       });
       card.addEventListener('pointerleave', function () {
         card.style.removeProperty('--glow-x');
@@ -115,9 +200,9 @@
       });
     });
 
-    // Draw the hero's pointer-reactive particle field without external libraries.
-    var hero = document.querySelector('.hero');
-    if (hero) {
+    // Draw pointer-reactive particle fields in each page's title area.
+    var particleTargets = document.querySelectorAll('.hero, .page-hero, .account-story');
+    particleTargets.forEach(function (hero) {
       var canvas = document.createElement('canvas');
       canvas.className = 'cursor-response-canvas';
       canvas.setAttribute('aria-hidden', 'true');
@@ -134,7 +219,7 @@
         var lastFrame = 0;
         var frame = 0;
         var heroVisible = true;
-        var particleCount = window.innerWidth < 700 ? 28 : 54;
+        var particleCount = window.innerWidth < 700 ? 20 : hero.classList.contains('hero') ? 54 : 34;
 
         for (var i = 0; i < particleCount; i++) {
           particles.push({
@@ -282,7 +367,7 @@
       } else {
         canvas.remove();
       }
-    }
+    });
   }
 
   // Tech carousel: duplicate track for a seamless infinite loop
