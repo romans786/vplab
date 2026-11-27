@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="VP ITLabs logo">
+  <defs>
+    <linearGradient id="lg1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#6a11cb"/>
+      <stop offset="1" stop-color="#2575fc"/>
+    </linearGradient>
+    <linearGradient id="lg2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ff5f6d"/>
+      <stop offset="1" stop-color="#ffc371"/>
+    </linearGradient>
+    <linearGradient id="lg3" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#11998e"/>
+      <stop offset="1" stop-color="#38ef7d"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="56" fill="none" stroke="url(#lg1)" stroke-width="6"/>
+  <circle cx="60" cy="60" r="46" fill="none" stroke="url(#lg2)" stroke-width="6"/>
+  <circle cx="60" cy="60" r="36" fill="none" stroke="url(#lg3)" stroke-width="6"/>
+  <text x="60" y="69" text-anchor="middle" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#222">VP</text>
+</svg>

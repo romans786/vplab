@@ -42,7 +42,7 @@ $servicesHref = ($pageFile === 'index') ? '#services' : 'index#services';
   <meta name="keywords" content="<?php echo htmlspecialchars($pageKeywords); ?>">
   <meta name="robots" content="index, follow">
   <meta name="author" content="<?php echo htmlspecialchars($siteName); ?>">
-  <meta name="theme-color" content="#2575fc">
+  <meta name="theme-color" content="#081727">
 
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
@@ -63,7 +63,7 @@ $servicesHref = ($pageFile === 'index') ? '#services' : 'index#services';
   <link rel="icon" href="img/logo.webp" type="image/webp">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 
   <script type="application/ld+json">
@@ -92,7 +92,7 @@ $servicesHref = ($pageFile === 'index') ? '#services' : 'index#services';
   }
   </script>
 </head>
-<body>
+<body data-page="<?php echo htmlspecialchars($pageFile, ENT_QUOTES, 'UTF-8'); ?>">
 
   <!-- Top utility bar -->
   <div class="topbar">

@@ -10,15 +10,22 @@ include __DIR__ . '/header.php';
     <div class="blob b1"></div>
     <div class="blob b2"></div>
     <div class="container">
-      <div class="hero-copy reveal in">
-        <div class="hero-eyebrow">Welcome to VP ITLabs</div>
-        <h1>We Are Proud Of The Works We&rsquo;ve Done.</h1>
-        <p class="hero-main">Our Technology takes your Imagination into Reality.</p>
-        <p class="lead">Our commitment and success rest upon our people and their well-being. Achieving things with our support. It&rsquo;s the VP ITLabs way.</p>
-        <a class="btn-dark" href="about">Get Started</a>
-      </div>
-      <div class="hero-art reveal in d2">
-        <img src="img/hero.webp" alt="Website building illustration">
+      <div class="hero-stage">
+        <div class="hero-copy reveal in">
+          <div class="hero-eyebrow">Welcome to VP ITLabs</div>
+          <h1>We Are Proud Of The Works We&rsquo;ve Done.</h1>
+        </div>
+        <div class="hero-art reveal in d1">
+          <img src="img/Futuristic%20Innovation%20Lightbulb%20and%20VR%20Headset.png" alt="Futuristic lightbulb and VR headset representing innovation and immersive technology" fetchpriority="high">
+        </div>
+        <div class="hero-details reveal in d2">
+          <p class="hero-main">Our Technology takes your Imagination into Reality.</p>
+          <p class="lead">Our commitment and success rest upon our people and their well-being. Achieving things with our support. It&rsquo;s the VP ITLabs way.</p>
+          <div class="hero-actions">
+            <a class="btn-primary" href="about">Get Started</a>
+            <a class="btn-outline" href="#services">Explore Services <span aria-hidden="true">&rarr;</span></a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -77,13 +84,19 @@ include __DIR__ . '/header.php';
   </section>
 
   <!-- What we think -->
-  <section class="think">
+  <section class="think home-think">
     <div class="container think-grid">
-      <div class="think-art reveal">
-        <img src="img/hero.webp" alt="Innovation and consulting">
+      <div class="think-visual reveal">
+        <div class="think-art">
+          <img src="img/Futuristic%20Global%20Tech%20Hub.png" alt="A connected global technology hub representing innovation, development and growth" loading="lazy">
+        </div>
+        <div class="think-visual-badge">
+          <span class="think-visual-kicker">Our perspective</span>
+          <strong>Technology that connects ideas.</strong>
+        </div>
       </div>
       <div class="think-copy reveal d1">
-        <div class="eyebrow" style="color:var(--primary);font-size:.8rem;letter-spacing:2.5px;font-weight:600;text-transform:uppercase;">What We Think</div>
+        <div class="eyebrow">What We Think</div>
         <h2><mark>Innovative solution with new materials and ideas for next-generation digital services and consulting.</mark></h2>
         <p>Our mission is to organize the business's information and make it universally accessible and useful.</p>
         <div class="mv-cards">

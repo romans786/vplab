@@ -14,13 +14,19 @@ include __DIR__ . '/header.php';
   </section>
 
   <!-- Why choose us / story -->
-  <section class="about">
+  <section class="about about-feature">
     <div class="container about-story">
-      <div class="think-art reveal">
-        <img src="img/hero.webp" alt="VP ITLabs team and technology">
+      <div class="about-visual reveal">
+        <div class="think-art">
+          <img src="img/Futuristic%20Blue%20Tech%20Innovation%20Hub.png" alt="A futuristic technology hub connecting software, security, innovation and people" fetchpriority="high">
+        </div>
+        <div class="about-visual-note">
+          <span class="about-visual-dot" aria-hidden="true"></span>
+          <span><small>VP ITLabs</small><strong>Ideas into reality</strong></span>
+        </div>
       </div>
-      <div class="reveal d1">
-        <div class="eyebrow" style="color:var(--primary);font-size:.8rem;letter-spacing:2.5px;font-weight:600;text-transform:uppercase;">Why Choose Us</div>
+      <div class="about-copy reveal d1">
+        <div class="eyebrow about-eyebrow">Why Choose Us</div>
         <h2>VP ITLabs &ndash; Our Technology takes your Imagination into Reality.</h2>
         <p>At VP ITLabs, we believe in blending creativity with strategy. Our team of skilled professionals brings a diverse range of expertise to the table, ensuring that every project we undertake is a masterpiece. We collaborate closely with our clients, understanding their unique needs and crafting tailor-made solutions that resonate with their goals.</p>
         <p><span class="hl-word">Join Us in Shaping Tomorrow:</span> We invite you to join us on this exciting journey of innovation and transformation. Whether you&rsquo;re looking to revamp your digital presence, optimize processes, or explore new avenues, VP ITLabs is here to make it happen.</p>
