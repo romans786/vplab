@@ -41,39 +41,51 @@ include __DIR__ . '/header.php';
 
       <div class="services-grid">
         <article class="service-card reveal">
-          <div class='service-icon'><img src='img/serv/app-development.webp' alt='web &amp; mobile development' loading='lazy'></div>
+          <div class="service-kicker">01 / Build</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="5" y="8" width="38" height="30" rx="4"/><path d="M5 16h38M13 25l-4 4 4 4m9-8-4 8m11-8 4 4-4 4"/></svg></div>
           <h3>web &amp; mobile development</h3>
           <p>Responsive websites and mobile apps crafted with modern frameworks and clean, scalable code.</p>
+          <a class="service-link" href="contact">Explore service <span aria-hidden="true">&rarr;</span></a>
         </article>
 
         <article class="service-card reveal d1">
-          <div class='service-icon'><img src='img/serv/reputation-management.webp' alt='SEO &amp; Digital Marketing' loading='lazy'></div>
+          <div class="service-kicker">02 / Grow</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M7 39V27h8v12m5 0V19h8v20m5 0V9h8v30M5 42h38M8 21l10-8 8 5L39 7m-8 0h8v8"/></svg></div>
           <h3>SEO &amp; Digital Marketing</h3>
           <p>Rank higher, reach farther. Result-driven SEO and digital marketing that builds your brand.</p>
+          <a class="service-link" href="contact">Explore service <span aria-hidden="true">&rarr;</span></a>
         </article>
 
         <article class="service-card reveal d2">
-          <div class='service-icon'><img src='img/serv/online-store.webp' alt='E-Commerce Development' loading='lazy'></div>
+          <div class="service-kicker">03 / Commerce</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="M8 18h32l-3 23H11L8 18Zm8 0a8 8 0 0 1 16 0M18 27v1m12-1v1"/></svg></div>
           <h3>E-Commerce Development</h3>
           <p>Stores that sell around the clock &ndash; secure carts, smooth checkouts and great UX.</p>
+          <a class="service-link" href="contact">Explore service <span aria-hidden="true">&rarr;</span></a>
         </article>
 
         <article class="service-card reveal">
-          <div class='service-icon'><img src='img/serv/internship.webp' alt='Student Internship' loading='lazy'></div>
+          <div class="service-kicker">04 / Learn</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m4 18 20-10 20 10-20 10L4 18Zm7 4v11c7 6 19 6 26 0V22M42 19v13"/></svg></div>
           <h3>Student Internship</h3>
           <p>Hands-on industrial training that turns classroom learning into real-world skills.</p>
+          <a class="service-link" href="internship-5th-sem">Explore internship <span aria-hidden="true">&rarr;</span></a>
         </article>
 
         <article class="service-card reveal d1">
-          <div class='service-icon'><img src='img/serv/coding.webp' alt='Custom Development' loading='lazy'></div>
+          <div class="service-kicker">05 / Engineer</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><path d="m17 14-10 10 10 10m14-20 10 10-10 10m-4-23-6 26"/></svg></div>
           <h3>Custom Development</h3>
           <p>Tailor-made software engineered around your exact business needs and workflows.</p>
+          <a class="service-link" href="contact">Explore service <span aria-hidden="true">&rarr;</span></a>
         </article>
 
         <article class="service-card reveal d2">
-          <div class='service-icon'><img src='img/serv/training.webp' alt='IT Training' loading='lazy'></div>
+          <div class="service-kicker">06 / Upskill</div>
+          <div class="service-icon" aria-hidden="true"><svg viewBox="0 0 48 48"><rect x="6" y="8" width="36" height="32" rx="4"/><path d="M6 16h36m-26 9 5 5-5 5m12 0h8"/></svg></div>
           <h3>IT Training</h3>
           <p>Practical, instructor-led programs on in-demand technologies for students and teams.</p>
+          <a class="service-link" href="courses">Explore courses <span aria-hidden="true">&rarr;</span></a>
         </article>
       </div>
 

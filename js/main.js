@@ -69,6 +69,22 @@
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
 
+  // Service-card pointer glow, enabled only for fine pointers.
+  var serviceCards = document.querySelectorAll('.services-grid .service-card');
+  if (serviceCards.length && window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+    serviceCards.forEach(function (card) {
+      card.addEventListener('pointermove', function (e) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty('--glow-x', (e.clientX - rect.left) + 'px');
+        card.style.setProperty('--glow-y', (e.clientY - rect.top) + 'px');
+      });
+      card.addEventListener('pointerleave', function () {
+        card.style.removeProperty('--glow-x');
+        card.style.removeProperty('--glow-y');
+      });
+    });
+  }
+
   // Tech carousel: duplicate track for a seamless infinite loop
   var track = document.querySelector('.tech-track');
   if (track) {
