@@ -102,10 +102,16 @@
         var rect = card.getBoundingClientRect();
         card.style.setProperty('--glow-x', (e.clientX - rect.left) + 'px');
         card.style.setProperty('--glow-y', (e.clientY - rect.top) + 'px');
+        var tiltX = (e.clientY - rect.top) / rect.height - 0.5;
+        var tiltY = (e.clientX - rect.left) / rect.width - 0.5;
+        card.style.setProperty('--tilt-x', (-tiltX * 2.4).toFixed(2) + 'deg');
+        card.style.setProperty('--tilt-y', (tiltY * 2.4).toFixed(2) + 'deg');
       });
       card.addEventListener('pointerleave', function () {
         card.style.removeProperty('--glow-x');
         card.style.removeProperty('--glow-y');
+        card.style.removeProperty('--tilt-x');
+        card.style.removeProperty('--tilt-y');
       });
     });
 
