@@ -8,7 +8,11 @@ if (!is_dir($output) && !mkdir($output, 0775, true) && !is_dir($output)) {
 }
 
 $pages = glob($root . '/*.php');
-$redirects = array();
+$redirects = array(
+    '/index/ / 301!',
+    '/index.php / 301!',
+    '/index / 301!',
+);
 $generatedPages = 0;
 
 foreach ($pages as $page) {
