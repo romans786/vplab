@@ -35,7 +35,6 @@ foreach ($pages as $page) {
     $generatedPages++;
 
     if ($slug !== 'index') {
-        $redirects[] = '/' . $slug . '/ /' . $slug . ' 301!';
         $redirects[] = '/' . $slug . '.php /' . $slug . ' 301!';
         $redirects[] = '/' . $slug . ' /' . $filename . ' 200';
     }
